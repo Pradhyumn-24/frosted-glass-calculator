@@ -114,3 +114,27 @@ body {
      scroll: Adds scrollbars so users can scroll to see the hidden content.
      auto: Adds scrollbars only if needed (when content overflows). 
 */
+
+.calc-button-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+
+/*
+ When you use a percentage (%) value for CSS margin, it means the margin size is calculated relative to the width of the containing block (the parent element's width), not the element itself or its height. 
+*/
+
+.calc-button {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    flex-basis: 20%;
+    font-family: inherit;
+    font-size: 24px;
+    height: 65px;
+}
