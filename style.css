@@ -11,7 +11,7 @@ html {
 }
 
 /*
-8: Using inherit for box-sizing is often seen in global CSS resets or base styles,  typically within the following structure:
+ Using inherit for box-sizing is often seen in global CSS resets or base styles,  typically within the following structure:
 
     This approach ensures that all elements on the page, including pseudo-elements, inherit the border-box model from the html element. This promotes consistent and predictable sizing behavior across the entire document, making layout development more intuitive. It also allows for specific elements to override this inherited value if a content-box model is required for a particular component or third-party widget. 
 */
@@ -27,11 +27,68 @@ body {
 }
 
 /* 
-26, 27: The align-items property in CSS is used to control how items are aligned vertically within a container that uses display: flex or display: grid. It affects all the child elements inside that container. For example, setting align-items: center will center the items vertically, while flex-start aligns them to the top, and flex-end pushes them to the bottom. The default value is stretch, which makes the items fill the container's height. It's a quick way to adjust vertical positioning without extra margins or padding.
+ The align-items property is used to control how items are aligned vertically within a container that uses display: flex or display: grid. It affects all the child elements inside that container. For example, setting align-items: center will center the items vertically, while flex-start aligns them to the top, and flex-end pushes them to the bottom. The default value is stretch, which makes the items fill the container's height. It's a quick way to adjust vertical positioning without extra margins or padding.
 
-28: Using linear gradient, i can make smooth transition between any no. of colors. I can also control the direction of gradient using keywords like to top, bottom, left or right; or using specific angles like 320deg or maybe 20deg, etc, this gives me more precise control over the output as compared to the keywords.
 
-30: The font-display property in CSS controls how text is shown while a custom web font is loading. It’s used inside @font-face and affects whether the browser shows fallback text immediately or waits for the custom font to load. For example, swap shows fallback text right away and switches to the custom font when it's ready, while block hides the text briefly before showing it with the custom font.
+ Using linear gradient, i can make smooth transition between any no. of colors. I can also control the direction of gradient using keywords like to top, bottom, left or right; or using specific angles like 320deg or maybe 20deg, etc, this gives me more precise control over the output as compared to the keywords.
 
-32: The justify-content property in CSS is used to align items horizontally (left to right) inside a container with display: flex or grid. It controls how space is distributed between and around items. For example, justify-content: center centers the items, flex-start aligns them to the left, flex-end to the right, and space-between or space-around spreads them out with spaces in between. It helps manage horizontal layout and spacing of child elements in a flexible container. 
+
+ The font-display property controls how text is shown while a custom web font is loading. It’s used inside @font-face and affects whether the browser shows fallback text immediately or waits for the custom font to load. For example, swap shows fallback text right away and switches to the custom font when it's ready, while block hides the text briefly before showing it with the custom font.
+
+
+ The justify-content property is used to align items horizontally (left to right) inside a container with display: flex or grid. It controls how space is distributed between and around items. For example, justify-content: center centers the items, flex-start aligns them to the left, flex-end to the right, and space-between or space-around spreads them out with spaces in between. It helps manage horizontal layout and spacing of child elements in a flexible container. 
+*/
+
+.wrapper {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75); 
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.30);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    flex-basis: 400px;
+    height: 540px;
+    padding: 20px 35px;
+}
+
+/* 
+ The backdrop-filter property is used to apply visual effects (like blur, brightness, contrast, grayscale, etc.) to the area behind an element, not the element itself. It creates a kind of frosted glass or blurry background effect, commonly seen in modern UI designs like modals, cards, and overlays. 
+
+
+ Although this property (backdrop-filter) works in most browsers but for safari, we need the -webkit-backdrop-filter prefix.
+
+
+ It (backdrop-filter) only works when the element has some transparency (e.g., using rgba or opacity), so the background is partially visible.
+
+
+ In CSS, rgba() is a function used to define colors with an added alpha (opacity) channel. It extends the standard RGB color model by allowing control over the transparency of the color. Parameters are given below:
+   red, green, blue:
+     These represent the intensity of the red, green, and blue color components, respectively. They can be specified as:
+         An integer between 0 and 255 or a percentage between 0% and 100%.
+   alpha: 
+     This parameter controls the opacity of the color. It is a number between 0.0 (fully transparent) and 1.0 (fully opaque). 
+ 
+
+ The box-shadow property in CSS is used to add shadow effects around an element, creating a sense of depth or elevation in your design. 
+ It follows the syntax: box-shadow: offset-x offset-y blur-radius spread-radius color;, where you define the shadow's horizontal and vertical position, how blurry it looks, how much it spreads, and its color. 
+ The offset-x and offset-y values work like coordinates on a 2D plane: offset-x moves the shadow horizontally—positive values shift it to the right, negative to the left—while offset-y moves it vertically—positive values push it down, and negative values pull it up. For example, box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.2); creates a soft shadow offset to the right and downward. 
+ You can also use the inset keyword (e.g., box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);) to place the shadow inside the element, which is useful for creating pressed or sunken effects. 
+ Multiple shadows can be applied by separating them with commas like this:
+     ```
+     box-shadow: 
+       2px 2px 5px rgba(0, 0, 0, 0.3),
+       -2px -2px 5px rgba(255, 255, 255, 0.5);
+     ```
+
+
+ The color property sets the text color of an element. It defines what color the font or text content appears in the browser.
+
+
+ The flex-basis property defines the initial size of a flex item before it starts growing or shrinking to fit the available space in a flex container. It works along the main axis of the container, meaning it sets the width if flex-direction is row, or the height if flex-direction is column; by default it only affects row. 
+ Unlike width or height, which are fixed unless overridden, flex-basis provides a starting point for the flex item’s size that can be adjusted based on the flex-grow and flex-shrink properties. For example, flex-basis: 200px tells the browser to treat the item as 200px wide or tall initially, but still allow it to expand or contract depending on the space available and the behavior of surrounding items.
 */
