@@ -6,16 +6,32 @@ html {
 *::before,
 *::after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
-/* Using inherit for box-sizing is often seen in global CSS resets or base styles, typically within the following structure:
-Code
+/*
+8: Using inherit for box-sizing is often seen in global CSS resets or base styles,  typically within the following structure:
 
-html {
-  box-sizing: border-box;
+    This approach ensures that all elements on the page, including pseudo-elements, inherit the border-box model from the html element. This promotes consistent and predictable sizing behavior across the entire document, making layout development more intuitive. It also allows for specific elements to override this inherited value if a content-box model is required for a particular component or third-party widget. 
+*/
+
+body {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(320deg, #eb92be, #ffef78, #63c9b4);
+    font-style: "Dosis", monospace;
+    font-display: swap;
+    height: inherit;
+    justify-content: center;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-This approach ensures that all elements on the page, including pseudo-elements, inherit the border-box model from the html element. This promotes consistent and predictable sizing behavior across the entire document, making layout development more intuitive. It also allows for specific elements to override this inherited value if a content-box model is required for a particular component or third-party widget. */
+/* 
+26, 27: The align-items property in CSS is used to control how items are aligned vertically within a container that uses display: flex or display: grid. It affects all the child elements inside that container. For example, setting align-items: center will center the items vertically, while flex-start aligns them to the top, and flex-end pushes them to the bottom. The default value is stretch, which makes the items fill the container's height. It's a quick way to adjust vertical positioning without extra margins or padding.
+
+28: Using linear gradient, i can make smooth transition between any no. of colors. I can also control the direction of gradient using keywords like to top, bottom, left or right; or using specific angles like 320deg or maybe 20deg, etc, this gives me more precise control over the output as compared to the keywords.
+
+30: The font-display property in CSS controls how text is shown while a custom web font is loading. It’s used inside @font-face and affects whether the browser shows fallback text immediately or waits for the custom font to load. For example, swap shows fallback text right away and switches to the custom font when it's ready, while block hides the text briefly before showing it with the custom font.
+
+32: The justify-content property in CSS is used to align items horizontally (left to right) inside a container with display: flex or grid. It controls how space is distributed between and around items. For example, justify-content: center centers the items, flex-start aligns them to the left, flex-end to the right, and space-between or space-around spreads them out with spaces in between. It helps manage horizontal layout and spacing of child elements in a flexible container. 
+*/
