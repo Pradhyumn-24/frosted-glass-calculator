@@ -104,7 +104,7 @@ body {
     overflow: auto;
     padding: 20px;
     text-align: right;
-    width: 326px;
+    width: 390px;
 }
 
 /* 
@@ -138,3 +138,18 @@ body {
     font-size: 24px;
     height: 65px;
 }
+
+.calc-button:last-child {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #fff;
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: #d72880;
+}
+
+/*
+ :last-child pseudo-class selects an element that is the last child of its parent element. This selector is useful for applying specific styles to the final element within a group of siblings.  
+*/
