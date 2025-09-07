@@ -20,7 +20,7 @@ body {
     display: flex;
     align-items: center;
     background: linear-gradient(320deg, #eb92be, #ffef78, #63c9b4);
-    font-style: "Dosis", monospace;
+    font-family: "Dosis", monospace;
     font-display: swap;
     height: inherit;
     justify-content: center;
@@ -40,20 +40,19 @@ body {
 */
 
 .wrapper {
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    background: rgba(255, 255, 255, 0.75); 
-    border: 1px solid rgba(255, 255, 255, 0.01);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
-    color: #232323;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    background: rgba(255, 255, 255, 0.30);
-    border: 1px solid rgba(255, 255, 255, 0.34);
     flex-basis: 400px;
     height: 540px;
     padding: 20px 35px;
+    background: rgba(255, 255, 255, 0.30);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 /* 
@@ -91,4 +90,27 @@ body {
 
  The flex-basis property defines the initial size of a flex item before it starts growing or shrinking to fit the available space in a flex container. It works along the main axis of the container, meaning it sets the width if flex-direction is row, or the height if flex-direction is column; by default it only affects row. 
  Unlike width or height, which are fixed unless overridden, flex-basis provides a starting point for the flex item’s size that can be adjusted based on the flex-grow and flex-shrink properties. For example, flex-basis: 200px tells the browser to treat the item as 200px wide or tall initially, but still allow it to expand or contract depending on the space available and the behavior of surrounding items.
+*/
+
+.screen {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    font-size: 35px;
+    overflow: auto;
+    padding: 20px;
+    text-align: right;
+    width: 326px;
+}
+
+/* 
+ overflow controls what happens when the content inside a container is too big to fit within its set width or height. It defines how extra content is handled whether it’s visible, hidden, or scrollable. Common overflow values are given below:
+     visible (default): Content spills out of the container and remains visible.
+     hidden: Extra content is clipped and not shown.
+     scroll: Adds scrollbars so users can scroll to see the hidden content.
+     auto: Adds scrollbars only if needed (when content overflows). 
 */
