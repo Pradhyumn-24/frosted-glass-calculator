@@ -1,3 +1,21 @@
 html {
-    
+    box-sizing: border-box;
+    height: 100%;
 }
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Using inherit for box-sizing is often seen in global CSS resets or base styles, typically within the following structure:
+Code
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+This approach ensures that all elements on the page, including pseudo-elements, inherit the border-box model from the html element. This promotes consistent and predictable sizing behavior across the entire document, making layout development more intuitive. It also allows for specific elements to override this inherited value if a content-box model is required for a particular component or third-party widget. */
