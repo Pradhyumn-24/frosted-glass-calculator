@@ -48,6 +48,7 @@ body {
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
     color: #232323;
+    font-weight: bold;
 
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
@@ -135,6 +136,7 @@ body {
     -webkit-backdrop-filter: blur(5.5px);
     flex-basis: 20%;
     font-family: inherit;
+    font-weight: bold;
     font-size: 24px;
     height: 65px;
 }
@@ -152,4 +154,29 @@ body {
 
 /*
  :last-child pseudo-class selects an element that is the last child of its parent element. This selector is useful for applying specific styles to the final element within a group of siblings.  
+*/
+
+.calc-button:last-child:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+/*
+ background-color is a specific property for defining only the background color, while background is a comprehensive shorthand property that can define the background color along with other background-related styles like images, their positioning, and repetition. If the only background style needed is a color, background-color is sufficient and often more explicit. If multiple background styles are required, background offers a more concise way to declare them. 
+*/
+
+.calc-button:hover {
+    background-color: inherit;
+}
+
+.calc-button:active {
+    background-color: #ffef78;
+}
+
+.calc-button:last-child:active {
+    background-color: #ffef78;
+}
+
+/*
+ :active is a pseudo-class that represents an element currently being activated by the user. This typically occurs when a user presses down the primary mouse button on an element, and it remains active until the button is released. 
 */
