@@ -106,6 +106,7 @@ body {
     padding: 20px;
     text-align: right;
     width: 390px;
+    margin-top: 2.3%;    /* can't decide whether to keep this line or not */
 }
 
 /* 
