@@ -20,6 +20,8 @@ body {
     display: flex;
     align-items: center;
     background: linear-gradient(320deg, #eb92be, #ffef78, #63c9b4);
+    /* background: linear-gradient(320deg, #D329D6, #D6D329, #29D6D3);
+    background: linear-gradient(320deg, #CC82D8, #D8CC82, #82D8CC); */
     font-family: "Dosis", monospace;
     font-display: swap;
     height: inherit;
@@ -176,6 +178,24 @@ body {
 
 .calc-button:last-child:active {
     background-color: #ffef78;
+}
+
+.equations1 {
+  position:absolute;
+  top:140px;
+  left:1139px;
+}
+
+.equations2 {
+  position:absolute;
+  top:130px;
+  left:169px;
+}
+
+.integral {
+  position:absolute;
+  top:460px;
+  left:69px;
 }
 
 /*

@@ -1,6 +1,7 @@
 # Notebook
 
 - When any no. is divided by zero, its outcome should be undefined.
+- Play around with colors in css for calculator layout.
 
 
 

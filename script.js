@@ -1,4 +1,4 @@
-const clickSound = new Audio('click.mp3');
+const clickSound = new Audio('media/click.mp3');
 const screen = document.querySelector('.screen');
 const buttons = document.querySelectorAll('.calc-button');
 // This code connects the constants screen and buttons to the first element in .screen and all elements in .calc-button
@@ -84,6 +84,7 @@ buttons.forEach(button => {
 
         clickSound.currentTime = 0;
         clickSound.play();
+        clickSound.volume = 0.1;    // We can set the vol from 0.0 (silent) to 1.0 (loudest)
 
         updateScreen();
         
