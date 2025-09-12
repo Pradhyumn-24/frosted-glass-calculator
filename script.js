@@ -42,7 +42,7 @@ buttons.forEach(button => {
                 break;
 
             case 'backspace':
-                if (input === 'error') {    // This will clear the whole word instead of one letter (like erro, err, etc.)
+                if (['error','NaN','Undefined!','Infinity'].includes(input)) {    // This will clear the whole word instead of one letter (like erro, err, etc.)
                     input = '';
                 }
                 input = input.slice(0, -1);
@@ -51,11 +51,16 @@ buttons.forEach(button => {
             case '=':
                 try {
                     if (/^[0-9+\-*/%.() ]+$/.test(input)) {
-                        input = eval(input).toString();
+                        if (/\/0(?!\d)/.test(input)) {
+                            input = 'Undefined!';
+                        }
+                        else {
+                            input = eval(input).toString();
+                        }
                     }
                     else {
-                        input = 'error';
-                    } 
+                            input = 'error';
+                        }
                 }
                 catch {
                     input = 'error';
@@ -76,12 +81,15 @@ buttons.forEach(button => {
                 break;
 
             default:
-                if (input === 'error') {    // This will clear error msg in case of new input.
+                if (['error','NaN','Undefined!','Infinity'].includes(input)) {    
                     input = '';
+                    // This will clear these messages in case of new input by using array
+                    // could have also used the input === 'error' || input === 'NaN' || etc.
                 }
                 if (/\d/.test(value) && input.endsWith(')')) {
-                    input += '*' + value;    // we use concatenation here coz value is a variable not a string
-                    // or "input += `*${value}`;"    // this is temperate literal, more about this in comments below
+                    input += '*' + value;    
+                    // we use concatenation here coz value is a variable not a string
+                    // or "input += `*${value}`;" which is a temperate literal, more about this in comments below
                 }
                 else {
                     input += value;
@@ -107,6 +115,7 @@ updateScreen();
 // try { ... } catch { ... } → This is error handling: Code inside try runs normally. If something goes wrong (error), the catch block runs instead (showing "Error").
 // The regular expression or regex /^[0-9+\-*/%.() ]+$/ is a rule that ensures the calculator input contains only valid math characters. The ^ at the start means “beginning of the string” and the $ at the end means “end of the string,” so the entire input must follow the rule, not just part of it. The square brackets [ ... ] define the allowed characters: 0-9 means any digit, + is plus, \- is minus (escaped with \ so it isn’t confused with a range), * is multiply, / is divide, % is modulo, . is decimal point, ( and ) are parentheses, and a space " " is also allowed. The + after the brackets means “one or more of these characters,” so the input must contain at least one allowed character. Together, this ensures the input string is made only of numbers, operators, parentheses, decimals, or spaces. For example, "123+45*2", "3.14*(2+5)", and "5 / 2" all pass because they use only valid characters, but "12a34" fails since a is not allowed, and "alert('hi')" fails since letters and quotes aren’t in the set. This validation step protects the calculator by blocking unsafe or invalid inputs before eval() runs.
 // .test(input) will check if the input string matches the regex conditions or not and will return true or false depending on the outcome.
+// "if (/\/0(?!\d)/.test(input)) {input = 'Undefined!';}" ensures that if a no. is divided by zero or followed by "/0" then Undefined! would be displayed instead of Infinity. We put this code block in '=' case instead of default coz javascript answer to the input would already be Infinity. So we change it after the evaluation in the '=' case. Our regex "/\/0(?!\d)/" means \/0 → /0, (?!\d) → negative lookahead which can be understood through an example: (?!x) makes sure what follows is not x and will return true/false depending on the outcome.
 // eval(input) → takes the string and runs it as JavaScript code while ".toString()" converts the result into a string so it can be displayed on the screen.
 // what const openCount & const closeCount does is they return the value of matches of '(' & ')' in the input string.
 // The .match() method in JavaScript finds all matches of a regex inside a string. If matches are found → it returns them as an array. If no matches are found → it returns null.
@@ -115,6 +124,7 @@ updateScreen();
 // Why "|| []" is required? Because if no matches of regex are found then .match() will return null. But calling .length on null would throw an error. That's why we will use our fallback system. If .match() returns null, || [] replaces it with an empty array [], and .length becomes 0. 
 // Hence .match() will find all matches of regex and .length will safely count them with the help from "|| []".
 // BTW .length finds how many items are in an array or a string.
+// .includes checks whether something exists inside an array or a string. if (input === 'error' || input === 'NaN' || input === 'Undefined!') {    // This will clear error msg in case of new input. input = '';}
 // input += x is basically shorthand for input = input + x
 // openCount > closeCount ? ')' : '('; is a ternary or conditional operator in JavaScript in the format of "condition ? conditionIfTrue : conditionIfFalse;". So if openCount > closeCount then it will return value as ')', or if openCount < closeCount then it will return value as '('.
 // The === operator first checks if the data types of the two operands are the same. If the data types are identical, it then checks if their values are equal. It returns true only if both the type and the value are the same; otherwise, it returns false like 5 == 5 : true or like 5 == "5" : false. While == operator will return true even if the type of data are not same but the value is same like 5 == "5" : true, this is because it will try convert both of the data types to a common data type before comparing.
