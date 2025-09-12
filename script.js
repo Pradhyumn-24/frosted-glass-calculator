@@ -81,7 +81,7 @@ buttons.forEach(button => {
                 }
                 if (/\d/.test(value) && input.endsWith(')')) {
                     input += '*' + value;    // we use concatenation here coz value is a variable not a string
-                    // or "input += `*${value}`;"    // this is temperate literal, more about this in below comments
+                    // or "input += `*${value}`;"    // this is temperate literal, more about this in comments below
                 }
                 else {
                     input += value;
