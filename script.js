@@ -79,7 +79,13 @@ buttons.forEach(button => {
                 if (input === 'error') {    // This will clear error msg in case of new input.
                     input = '';
                 }
-                input += value;
+                if (/\d/.test(value) && input.endsWith(')')) {
+                    input += '*' + value;    // we use concatenation here coz value is a variable not a string
+                    // or "input += `*${value}`;"    // this is temperate literal, more about this in below comments
+                }
+                else {
+                    input += value;
+                }
         }
 
         clickSound.currentTime = 0;
@@ -115,5 +121,6 @@ updateScreen();
 // The && logical operator (ie. conditionOne && conditionTwo;) will return true only if "both" conditions are satisfied.
 // "/\d$/" is a regex where \d matches a digit (0-9) while $ matches the end of the string. There is no ^ because we don’t care about the start of the string. ^ anchors to the start, $ anchors to the end. Here, we only want to check the last character, so $ is enough. If you added ^ it would mean “the whole string is a digit, not just the last char” → which is not what we want. ".test(input)" returns true if the last character of input is a digit.
 // input.endsWith(')') checks if the last character is a closing parenthesis. ".endsWith()" is easier than regex here; it’s just true/false. || gives us flexibility to check if last character is digit or closing parenthesis ')'.
+// Temperate literals allow us to directly embed the variable into the string using backticks and ${}. Example: "input += `*${value}`;" where value is a variable and * is a string, this is like f string in python. Also in "input += '*' + value;", if value were a string instead of a variable THEN we could have used "input += '*value';".~
 // To add audio feedback for our calculator buttons, we need to create a new Audio object using const clickSound = new Audio('click.mp3'); here, new constructs a fresh Audio instance that we can control with properties and methods like .play(), .pause(), .currentTime, and .volume. Inside our button click listener, we call clickSound.currentTime = 0; clickSound.play(); where setting .currentTime = 0 rewinds the audio to the start so rapid consecutive clicks play the sound from the beginning without overlapping or cutting off, and .play() actually plays the sound.
 // updateScreen() is called at the end of the file to initialize the calculator’s display when the page first loads, making sure it shows 0 based on the JavaScript variable input. Then, inside the button event listener, it’s called again after each button press so the display always reflects the latest input. Without the first call, the screen might just show whatever is in the HTML and not sync with the code. Without the second call, the screen wouldn’t update as you type or calculate.
