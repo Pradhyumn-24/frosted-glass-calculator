@@ -25,7 +25,8 @@ A stylish web-based calculator built with **HTML, CSS, and JavaScript**, featuri
 calculator/
 │── index.html          # Main calculator UI  
 │── style.css           # Frosted glass styling & layout  
-│── script.js           # Calculator logic & interactivity  
+│── script.js           # Calculator logic & interactivity
+│── LICENSE             # Free and Open Source Licence 
 │── README.md           # Project documentation  
 │── media/  
 │   ├── calculator-preview.png  # Screenshot for README  
