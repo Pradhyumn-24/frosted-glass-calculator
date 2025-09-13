@@ -42,7 +42,7 @@ buttons.forEach(button => {
                 break;
 
             case 'backspace':
-                if (['error','NaN','Undefined!','Infinity'].includes(input)) {    // This will clear the whole word instead of one letter (like erro, err, etc.)
+                if (['Error','Indeterminate value!','Undefined!','Infinity'].includes(input)) {    // This will clear the whole word instead of one letter (like erro, err, etc.)
                     input = '';
                 }
                 input = input.slice(0, -1);
@@ -54,16 +54,19 @@ buttons.forEach(button => {
                         if (/\/0(?!\d)/.test(input)) {
                             input = 'Undefined!';
                         }
+                        else if (isNaN(eval(input))) {
+                            input = 'Indeterminate value!';
+                        }
                         else {
                             input = eval(input).toString();
                         }
                     }
                     else {
-                            input = 'error';
+                            input = 'Error';
                         }
                 }
                 catch {
-                    input = 'error';
+                    input = 'Error';
                 }
                 break;
 
@@ -81,10 +84,10 @@ buttons.forEach(button => {
                 break;
 
             default:
-                if (['error','NaN','Undefined!','Infinity'].includes(input)) {    
+                if (['Error','Indeterminate value!','Undefined!','Infinity'].includes(input)) {    
                     input = '';
                     // This will clear these messages in case of new input by using array
-                    // could have also used the input === 'error' || input === 'NaN' || etc.
+                    // could have also used the input === 'Error' || input === 'Indeterminate value!' || etc.
                 }
                 if (/\d/.test(value) && input.endsWith(')')) {
                     input += '*' + value;    
@@ -124,7 +127,7 @@ updateScreen();
 // Why "|| []" is required? Because if no matches of regex are found then .match() will return null. But calling .length on null would throw an error. That's why we will use our fallback system. If .match() returns null, || [] replaces it with an empty array [], and .length becomes 0. 
 // Hence .match() will find all matches of regex and .length will safely count them with the help from "|| []".
 // BTW .length finds how many items are in an array or a string.
-// .includes checks whether something exists inside an array or a string. if (input === 'error' || input === 'NaN' || input === 'Undefined!') {    // This will clear error msg in case of new input. input = '';}
+// .includes checks whether something exists inside an array or a string.
 // input += x is basically shorthand for input = input + x
 // openCount > closeCount ? ')' : '('; is a ternary or conditional operator in JavaScript in the format of "condition ? conditionIfTrue : conditionIfFalse;". So if openCount > closeCount then it will return value as ')', or if openCount < closeCount then it will return value as '('.
 // The === operator first checks if the data types of the two operands are the same. If the data types are identical, it then checks if their values are equal. It returns true only if both the type and the value are the same; otherwise, it returns false like 5 == 5 : true or like 5 == "5" : false. While == operator will return true even if the type of data are not same but the value is same like 5 == "5" : true, this is because it will try convert both of the data types to a common data type before comparing.

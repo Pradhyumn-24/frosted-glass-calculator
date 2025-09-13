@@ -51,6 +51,7 @@ body {
     box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
     color: #232323;
     font-weight: bold;
+    user-select: none;
 
     backdrop-filter: blur(5.5px);
     -webkit-backdrop-filter: blur(5.5px);
@@ -93,6 +94,8 @@ body {
 
  The flex-basis property defines the initial size of a flex item before it starts growing or shrinking to fit the available space in a flex container. It works along the main axis of the container, meaning it sets the width if flex-direction is row, or the height if flex-direction is column; by default it only affects row. 
  Unlike width or height, which are fixed unless overridden, flex-basis provides a starting point for the flex item’s size that can be adjusted based on the flex-grow and flex-shrink properties. For example, flex-basis: 200px tells the browser to treat the item as 200px wide or tall initially, but still allow it to expand or contract depending on the space available and the behavior of surrounding items.
+
+ "user-select: none;" prevents the user from accidently selecting text from buttons or the screen.
 */
 
 .screen {
@@ -178,24 +181,6 @@ body {
 
 .calc-button:last-child:active {
     background-color: #ffef78;
-}
-
-.equations1 {
-  position:absolute;
-  top:140px;
-  left:1139px;
-}
-
-.equations2 {
-  position:absolute;
-  top:130px;
-  left:169px;
-}
-
-.integral {
-  position:absolute;
-  top:460px;
-  left:69px;
 }
 
 /*
