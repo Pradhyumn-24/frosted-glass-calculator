@@ -50,7 +50,7 @@ calculator/
 
 ## 🎵 Credits
 
-* Click sound: [Pixabay - freesound\_community](https://pixabay.com/sound-effects/)
+* Click sound: [Pixabay - freesound\_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=102918)
 
 ## 📚 Learning Value
 
